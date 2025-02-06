@@ -10,7 +10,7 @@ const AppContextProvider = (props) => {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [credit, setCredit] = useState(false)
 
-    const backendUrl = "http://localhost:4000";
+    const backendUrl = "https://saas-imagegeneration.onrender.com";
 
     const navigate = useNavigate()
 

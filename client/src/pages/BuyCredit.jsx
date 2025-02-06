@@ -24,7 +24,7 @@ const BuyCredit = () => {
             handler: async (response) => {
                 console.log(response);
                 try {
-                    const { data } = await axios.post('http://localhost:4000/api/users/verify-razor',
+                    const { data } = await axios.post('https://saas-imagegeneration.onrender.com/api/users/verify-razor',
                         response,
                         { headers: { token } });
                     if (data.success) {
