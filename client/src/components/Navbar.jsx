@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { assets } from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const navigate = useNavigate();
     const { user, setShowLogin, logout, credit } = useContext(AppContext);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <div className='flex items-center justify-between py-4 '>
@@ -28,11 +29,28 @@ const Navbar = () => {
                             }
                         </button>
                         <p className='text-gray-600 max-sm:hidden'>Hi, {user.name}</p>
-                        <div className="relative group hover:">
+                        {/* <div className="relative group hover:">
                             <img src={assets.profile_icon} className='w-10 drop-shadow' alt="" />
                             <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
                                 <ul className='bg-gray-200 px-6 py-1.5 rounded-lg hover:bg-gray-300'>
                                     <li onClick={logout} className=' px-2 cursor-pointer py-1 border-b'>
+                                        Logout
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> */}
+                        <div
+                            className="relative group"
+                            onClick={() => setMenuOpen(!menuOpen)} // Toggle menu on click
+                            onMouseLeave={() => setMenuOpen(false)} // Hide on mouse leave (desktop)
+                        >
+                            <img src={assets.profile_icon} className='w-10 drop-shadow cursor-pointer' alt="Profile" />
+
+                            <div
+                                className={`absolute ${menuOpen ? "block" : "hidden"} group-hover:block top-0 right-0 z-10 text-black rounded pt-12`}
+                            >
+                                <ul className='bg-gray-200 px-6 py-1.5 rounded-lg hover:bg-gray-300'>
+                                    <li onClick={logout} className='px-2 cursor-pointer py-1 border-b'>
                                         Logout
                                     </li>
                                 </ul>
