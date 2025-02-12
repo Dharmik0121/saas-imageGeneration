@@ -70,7 +70,7 @@ const BuyCredit = () => {
                         <img src={assets.miniLogo} width={40} alt="" />
                         <p className=" mt-3 mb-1 font-semibold">{item.id}</p>
                         <p className="text-sm">{item.desc}</p>
-                        <p className="mt-6 "> <span className="text-3xl font-semibold">${item.price} </span>/ {item.credits} credits</p>
+                        <p className="mt-6 "> <span className="text-3xl font-semibold">&#8377;.{item.price} </span>/ {item.credits} credits</p>
                         <button onClick={() => paymentRazorpay(item.id)} className="w-full bg-gray-800 text-white mt-8 text-sm rounded-md py-2.5 min-w-52">{user ? 'Purchase' : 'Get Started'}</button>
                     </div>
                 ))}
