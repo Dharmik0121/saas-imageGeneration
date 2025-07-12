@@ -10,7 +10,7 @@ const AppContextProvider = (props) => {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [credit, setCredit] = useState(false)
 
-    const backendUrl = "https://saas-imagegeneration.onrender.com";
+    const backendUrl = "https://saas-imagegeneration-7vg8.onrender.com";
 
     const navigate = useNavigate()
 
